@@ -1,0 +1,26 @@
+{
+  "id": "public-pr",
+  "surface": "pr-comment",
+  "source": {
+    "path": "/Users/richard/git/personal/agor-work-coordinator-private-adaptive-v2/plans/public-pr-review-comment-experience-plan.md",
+    "sha256": "2d83ded65cc46a1b2a471722c96fb7ab364036a68a59d0cb96861ecb3ddf54fa",
+    "revision": "d26e40c6e70126425fe274718b64039f1028a8ae"
+  },
+  "readerTask": "Produce a portable reviewer-facing explanation of the public PR review/reply experience without leaking private workflow mechanics.",
+  "requiredFacts": [
+    "One public-format authority owns review and follow-up structure.",
+    "Findings use verified locations, reasoning, severity, and actionable change.",
+    "Language comes from the active organization/repository profile.",
+    "Drafting does not authorize posting."
+  ],
+  "inferences": ["A consistent review/reply pair reduces reviewer reorientation cost."],
+  "limitations": ["Examples demonstrate quality but do not prove provider rendering or permission to post."],
+  "decisionBoundary": "Return draft text only unless provider mutation is separately approved.",
+  "prohibitedOverclaims": ["A draft has been posted.", "Private local paths or workflow internals are public-safe.", "One language phrasebook fits every company."],
+  "questions": [
+    {"q": "What is the public experience trying to standardize?", "a": "The reader-facing review and matching follow-up structure, not the internal workflow."},
+    {"q": "What must each actionable finding contain?", "a": "Severity, descriptive title, verified location, reasoning, and actionable change."},
+    {"q": "Does generating the text authorize posting it?", "a": "No."}
+  ],
+  "interactiveRequired": false
+}

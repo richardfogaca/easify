@@ -1,0 +1,26 @@
+{
+  "id": "qa-proof-limits",
+  "surface": "evidence",
+  "source": {
+    "path": "/Users/richard/git/personal/agor-work-coordinator-private-adaptive-v2/plans/replays/R2-backend-archive-cascade.md",
+    "sha256": "106dd4a0754919d4368053bf7bd2608224ea94ac2b3f2c7a7dfae56d78cfbfce",
+    "revision": "d26e40c6e70126425fe274718b64039f1028a8ae"
+  },
+  "readerTask": "Explain which archive-cascade evidence would prove database, authorization, event, and client behavior, and which claims remain limited.",
+  "requiredFacts": [
+    "Correct database rows do not prove authorization or realtime delivery.",
+    "A causal regression should reproduce the missing descendant behavior before editing.",
+    "Live HTTP/WebSocket evidence is distinct from service-level tests.",
+    "Evidence must describe the checked final state."
+  ],
+  "inferences": ["A service-level event test can raise confidence without proving end-to-end transport delivery."],
+  "limitations": ["Unavailable live runtime must be reported as degraded rather than inferred from unit tests."],
+  "decisionBoundary": "Evidence explanation cannot waive missing product-boundary proof.",
+  "prohibitedOverclaims": ["Typecheck proves the behavior.", "Stored-state assertions prove clients updated.", "Mocked persistence proves a real database boundary."],
+  "questions": [
+    {"q": "Why is a passing database assertion insufficient?", "a": "It does not prove per-session authorization, emitted realtime events, or client-visible state."},
+    {"q": "What makes the regression causal?", "a": "It reproduces the original descendant failure on unchanged code and passes after the fix."},
+    {"q": "How should missing live transport QA be described?", "a": "As an explicit degraded evidence boundary, not as inferred success."}
+  ],
+  "interactiveRequired": false
+}

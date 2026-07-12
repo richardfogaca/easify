@@ -1,0 +1,22 @@
+{
+  "id": "audience-transfer",
+  "surface": "conversation",
+  "source": {
+    "path": "/Users/richard/git/personal/agor/context/guides/rbac-and-unix-isolation.md",
+    "sha256": "1a12c7e2b2e4ef0233e5461ed5cf41347a0e0ab99eb36d3cbf424b5f3116bc64",
+    "revision": "b210f7b61a7eacc9502950ac936a975af631046e"
+  },
+  "readerTask": "Explain the same RBAC-versus-Unix-isolation distinction first to an engineer and then to a non-engineering operations reader, without changing the security conclusion.",
+  "requiredFacts": ["RBAC controls application-level permission.", "Unix isolation controls operating-system execution/filesystem identity.", "Enabling one does not automatically provide the other."],
+  "inferences": ["Vocabulary and examples should adapt to the audience."],
+  "limitations": ["Audience adaptation cannot soften the security boundary."],
+  "decisionBoundary": "No configuration change is authorized.",
+  "prohibitedOverclaims": ["RBAC alone isolates filesystem credentials.", "The nontechnical explanation may omit the independent layers.", "A configuration was changed."],
+  "questions": [
+    {"q": "What does RBAC control?", "a": "What a user may do through the application."},
+    {"q": "What does Unix isolation control?", "a": "Which OS identity, files, and credentials execution can reach."},
+    {"q": "Did the conclusion change between audiences?", "a": "No; only vocabulary and example selection changed."}
+  ],
+  "interactiveRequired": false,
+  "holdout": true
+}

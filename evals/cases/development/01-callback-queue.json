@@ -1,0 +1,27 @@
+{
+  "id": "callback-queue",
+  "surface": "conversation+interactive",
+  "source": {
+    "path": "/Users/richard/git/personal/agor-work-coordinator-private-adaptive-v2/plans/callback-first-coordinator-recovery-plan.md",
+    "sha256": "80dabca2391902fa4b08a116bcf9cbe6fb94578cc7e4944177f918b76964c043",
+    "revision": "d26e40c6e70126425fe274718b64039f1028a8ae"
+  },
+  "readerTask": "Explain why Ponytail callbacks stalled and what the repaired operating shape is, with complete portable Markdown plus an interactive walkthrough.",
+  "requiredFacts": [
+    "Callbacks were created through the stock queue path; a new stock callback regression was not established.",
+    "Busy controller topology increased queue pressure and removed a safe continuation path.",
+    "The repaired kernel dispatches one callback-owned worker and returns the exact coordinator session idle.",
+    "A watchdog is exceptional recovery and must not become a competing writer."
+  ],
+  "inferences": ["Idle posture reduces exposure to dropped or delayed queue-drain triggers."],
+  "limitations": ["A successful callback task does not alone prove correct reconciliation.", "The kernel canary does not prove restart recovery."],
+  "decisionBoundary": "The explanation may recommend the topology but cannot authorize production promotion.",
+  "prohibitedOverclaims": ["Callbacks bypass the queue.", "The watchdog guarantees recovery.", "Historical callback completion proves every workflow continued correctly."],
+  "questions": [
+    {"q": "Where did the observed failure occur?", "a": "After callback admission, when queued work failed to drain or no safe controller continuation remained."},
+    {"q": "What is the normal repaired loop?", "a": "One exact coordinator dispatches one callback-owned worker, returns idle, reconciles the callback, takes one next action, then returns idle."},
+    {"q": "What remains unproven by a no-watchdog kernel pass?", "a": "Recovery across restart wipes, silent stopped children, and dropped drain triggers."},
+    {"q": "What may the watchdog write?", "a": "Only its bounded recovery receipt or nudge; not objective truth or board state."}
+  ],
+  "interactiveRequired": true
+}

@@ -1,0 +1,21 @@
+{
+  "id": "tiny",
+  "surface": "conversation",
+  "source": {
+    "path": "/Users/richard/git/personal/agor-work-coordinator-private-adaptive-v2/examples/operator-presentation/tiny-config.md",
+    "sha256": "bbb0f4380c63303666e9453a88ce6e9555fa2efd0d6e391a2eb6d3577cf9d396",
+    "revision": "d26e40c6e70126425fe274718b64039f1028a8ae"
+  },
+  "readerTask": "Explain the tiny configuration change proportionally, without a ceremonial diagram or workflow story.",
+  "requiredFacts": ["The answer must preserve the exact setting, effect, and validation relevant to the case."],
+  "inferences": [],
+  "limitations": ["No unrelated system confidence should be inferred."],
+  "decisionBoundary": "Explanation does not authorize implementation.",
+  "prohibitedOverclaims": ["A tiny configuration check proves the broader system.", "The change was applied."],
+  "questions": [
+    {"q": "What changes?", "a": "Only the bounded configuration behavior described by the source."},
+    {"q": "What does the check not prove?", "a": "Any unrelated system behavior."}
+  ],
+  "interactiveRequired": false,
+  "proportionalityTarget": "No headings required, no visual, normally under 120 words."
+}

@@ -1,0 +1,26 @@
+{
+  "id": "documentation",
+  "surface": "documentation",
+  "source": {
+    "path": "/Users/richard/git/personal/agor/context/concepts/task-queueing.md",
+    "sha256": "e95857b1fe42816aff15747e73417951a80d2d768e4a3cbbafac9f514d258b73",
+    "revision": "b210f7b61a7eacc9502950ac936a975af631046e"
+  },
+  "readerTask": "Draft a stable documentation explanation of when Agor tasks queue and how queued work becomes runnable.",
+  "requiredFacts": [
+    "Tasks are the queueable unit.",
+    "A busy session causes later prompts or callbacks to queue.",
+    "Queued task creation and task execution are different states.",
+    "Documentation must distinguish durable behavior from implementation details."
+  ],
+  "inferences": ["A short state flow is likely more useful than a transcript of service calls."],
+  "limitations": ["The explanation must not claim queue processing guarantees not supported by current code."],
+  "decisionBoundary": "The draft does not authorize committing documentation.",
+  "prohibitedOverclaims": ["Queue admission means immediate execution.", "Callbacks are outside the queue.", "Draft documentation has been published."],
+  "questions": [
+    {"q": "What is queued in Agor?", "a": "Tasks."},
+    {"q": "What is the key distinction a reader must retain?", "a": "A queued task exists durably but has not necessarily started executing."},
+    {"q": "What should stable docs avoid?", "a": "Overpromising drain guarantees or exposing unnecessary internal implementation detail."}
+  ],
+  "interactiveRequired": false
+}

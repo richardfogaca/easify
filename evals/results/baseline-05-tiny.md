@@ -1,0 +1,1 @@
+This is a bounded configuration change. Update only the specified setting, validate that its intended consumer resolves the new value, and avoid claiming confidence in unrelated behavior. The check confirms configuration resolution, not the broader system.

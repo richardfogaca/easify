@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "frozenAt": "2026-07-12T11:55:00-03:00",
+  "candidateNotYetAuthored": true,
+  "modelPolicy": "Use the same runtime, model, effort, source text, and maximum response budget within each comparison lane.",
+  "caseCounts": {"development": 5, "holdout": 3},
+  "lanes": {
+    "packaging": "Identical Easify semantics through assistant-local loading and native skill loading.",
+    "semantic": "Ordinary response versus Easify Markdown with native discovery and no interactive artifact.",
+    "renderer": "Complete Easify Markdown versus the same explanation plus an interactive walkthrough."
+  },
+  "hardFailures": [
+    "material fact, conclusion, or authority boundary changes",
+    "important uncertainty or proof limit disappears",
+    "inference is presented as verified fact",
+    "private information leaks into a public projection",
+    "interactive output is required to recover essential missing Markdown facts",
+    "audience adaptation becomes condescending or stereotyped",
+    "a rigid repeated template obscures the issue"
+  ],
+  "scoring": {
+    "comprehension": "Correct answers divided by case-specific questions.",
+    "time": "Seconds until the reader can correctly restate the required mental model.",
+    "proportionality": "No material verbosity/noise regression on the tiny case.",
+    "preference": "Collected only after comprehension scoring, with labels hidden."
+  }
+}

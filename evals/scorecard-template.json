@@ -1,0 +1,21 @@
+{
+  "caseId": "",
+  "lane": "packaging|semantic|renderer|default-trial",
+  "runtime": "codex|claude",
+  "model": "",
+  "effort": "",
+  "skillRevision": "",
+  "labelsHidden": true,
+  "armOrder": ["A", "B"],
+  "answers": [
+    {"question": "", "answer": "", "correct": false}
+  ],
+  "secondsToCorrectRestatement": null,
+  "clarificationRequests": 0,
+  "preferredArmAfterScoring": "",
+  "wordCounts": {"A": 0, "B": 0},
+  "hardFailures": [],
+  "proportionality": "pass|fail",
+  "audienceAppropriateness": "pass|fail|not-applicable",
+  "notes": ""
+}

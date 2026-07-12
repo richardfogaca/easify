@@ -1,0 +1,23 @@
+{
+  "id": "complex-plan",
+  "surface": "plan",
+  "source": {
+    "path": "/Users/richard/git/personal/agor/context/concepts/architecture.md",
+    "sha256": "6f5c1c87d092b80a38308c065eaf1f343f5331ba115a17383dfc5cbb987c1755",
+    "revision": "b210f7b61a7eacc9502950ac936a975af631046e"
+  },
+  "readerTask": "Explain a proposed change spanning Agor UI, daemon, core, and executor to a repository-aware reader who is cold to this issue; include a useful visual complement and environment/QA boundaries.",
+  "requiredFacts": ["The browser/UI, daemon, core, and executor are distinct boundaries.", "The proposed plan must name which boundary owns the behavior.", "Environment and live QA must exercise the changed boundary."],
+  "inferences": ["A boundary diagram should reduce the context-switching cost."],
+  "limitations": ["Architecture orientation alone does not prove a proposed implementation."],
+  "decisionBoundary": "The plan requests approval; it does not self-authorize implementation.",
+  "prohibitedOverclaims": ["A diagram proves runtime behavior.", "All components must change.", "Approval has already been granted."],
+  "questions": [
+    {"q": "Which component should own the proposed behavior and why?", "a": "The answer must select the component matching the behavior's actual responsibility and explain the boundary."},
+    {"q": "Which adjacent components are consumers rather than authorities?", "a": "The answer must distinguish callers/adapters from the owner."},
+    {"q": "How will live QA exercise the changed boundary?", "a": "Through the real interface crossing that boundary, in an isolated environment."},
+    {"q": "What does approval authorize?", "a": "Only the described implementation and validation envelope, excluding protected external actions."}
+  ],
+  "interactiveRequired": true,
+  "holdout": true
+}

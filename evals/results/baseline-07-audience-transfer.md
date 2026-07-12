@@ -1,0 +1,3 @@
+For an engineer: RBAC is application-layer authorization, while Unix isolation determines the operating-system identity and filesystem/credential boundary used by execution. Enabling RBAC does not by itself prevent a process running as the daemon user from reading daemon-accessible files.
+
+For an operations reader: permissions in Agor decide which buttons and actions a person may use; Unix isolation decides which locked room the resulting process runs inside. You need both controls when collaborators should be limited in the app and prevented from reaching another user's files or credentials. The security conclusion is the same for both readers.

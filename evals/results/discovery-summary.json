@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-07-12T12:04:00-03:00",
+  "candidate": {
+    "skillSha256": "0dea75866124608795c6dc49bef67c505d44f8219399d1607fd6d5e83a7a5558",
+    "surfacesSha256": "a81dca78c9051f1037cf35a522e929619971b58bb702a59679587b7198b929fd",
+    "openaiMetadataSha256": "0dd31aff1d484a395da3e87572c6a489d3607c608b60690e42c9e383025e592d"
+  },
+  "runtimes": {
+    "codex": "codex-cli 0.144.0",
+    "claude": "2.1.207 (Claude Code)"
+  },
+  "results": {
+    "codexExplicitSelector": {
+      "status": "pass",
+      "selector": "$easify",
+      "loadedPath": "/Users/richard/git/personal/easify/easify/SKILL.md"
+    },
+    "claudeExplicitSelector": {
+      "status": "pass",
+      "selector": "/easify",
+      "loadedPath": "/Users/richard/.claude/skills/easify/SKILL.md"
+    },
+    "codexNamedNatural": {
+      "status": "observed-pass",
+      "phrase": "Easify this",
+      "loadedPath": "/Users/richard/git/personal/easify/easify/SKILL.md"
+    },
+    "claudeNamedNatural": {
+      "status": "observed-pass",
+      "phrase": "Easify this",
+      "loadedPath": "/Users/richard/.claude/skills/easify/SKILL.md"
+    },
+    "codexCompatibilityPhrase": {
+      "status": "observed-pass",
+      "phrase": "Easyfi this",
+      "surfaceReferenceLoaded": true,
+      "authorityBoundaryPreserved": true
+    },
+    "claudeCompatibilityPhrase": {
+      "status": "observed-pass",
+      "phrase": "Easyfi this",
+      "authorityBoundaryPreserved": true
+    },
+    "codexSimpleNegative": {
+      "status": "pass",
+      "prompt": "What is 2 + 2? Answer with only the number.",
+      "output": "4",
+      "visibleEasifyShaping": false,
+      "skillReadObserved": false
+    },
+    "claudeSimpleNegative": {
+      "status": "pass",
+      "prompt": "What is 2 + 2? Answer with only the number.",
+      "output": "4",
+      "visibleEasifyShaping": false
+    }
+  },
+  "limits": [
+    "Native selectors are deterministic; description-matched natural invocation is only measured behavior.",
+    "This is discovery and boundary proof, not the comprehension or default-mode promotion evaluation.",
+    "The raw run transcripts are local, ignored evaluation artifacts."
+  ]
+}

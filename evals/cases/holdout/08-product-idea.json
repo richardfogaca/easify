@@ -1,0 +1,22 @@
+{
+  "id": "product-idea",
+  "surface": "idea-transfer",
+  "source": {
+    "path": "/Users/richard/git/personal/agor/context/explorations/session-sharing.md",
+    "sha256": "a402d68c08bb497f030bcccba225b524a57ec0600cf6e1836753137c7245d4ec",
+    "revision": "b210f7b61a7eacc9502950ac936a975af631046e"
+  },
+  "readerTask": "Explain the session-sharing problem, the shipped short-term flag, and the most useful next product decision without turning the four longer-term options into an unearned recommendation.",
+  "requiredFacts": ["Legacy cross-user spawn could borrow the parent owner's application identity and credentials.", "The safe default attributes cross-user spawn to the caller.", "The legacy flag does not override strict-mode Unix identity validation.", "Longer-term options are sketches and unscheduled."],
+  "inferences": ["Real friction from the flag should inform which redesign option is worth pursuing."],
+  "limitations": ["The source does not establish demand, cost, or a winning redesign option."],
+  "decisionBoundary": "Recommend what evidence/decision is needed next; do not select a roadmap option as settled fact.",
+  "prohibitedOverclaims": ["The legacy flag works in strict mode.", "A longer-term option is approved or scheduled.", "The flag removes all credential-sharing risk."],
+  "questions": [
+    {"q": "What risk did the safe default remove?", "a": "Unconditional cross-user identity borrowing on spawn/fork."},
+    {"q": "Why does flag-on not restore legacy behavior in strict mode?", "a": "The caller-stamped Unix identity conflicts with the parent-owner application identity and validation refuses execution."},
+    {"q": "What is the next useful decision?", "a": "Whether observed demand/friction justifies deeper redesign research, not which option is already chosen."}
+  ],
+  "interactiveRequired": false,
+  "holdout": true
+}
