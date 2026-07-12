@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-07-12T12:07:00-03:00",
+  "candidateCommit": "4615f59e9b7273223e07061e2a58b352a4a0d4e2",
+  "steps": [
+    {
+      "step": 0,
+      "status": "pass",
+      "evidence": "Dirty Coordinator work was preserved; the candidate was built in a new standalone repository."
+    },
+    {
+      "step": 1,
+      "status": "pass-with-recorded-installer-limit",
+      "evidence": "Cross-agent sync recovered from pinned Agor revision 7369b3c43b242db57bccb11de5aee69ae6e72689, byte-checked, validated, and symlinked. The network helper could not fetch that historical private/unpublished revision."
+    },
+    {
+      "step": 2,
+      "status": "pass-for-fixtures",
+      "evidence": "Five development and three held-out cases, source hashes, questions, answer keys, limits, overclaims, frozen ordinary prose, lanes, and scorecard exist.",
+      "limit": "The frozen ordinary prose was authored in the implementation session; generate fresh no-skill runtime baselines before final semantic scoring."
+    },
+    {
+      "step": 3,
+      "status": "pass",
+      "evidence": "One Markdown-first native skill, one conditional reference, OpenAI metadata, implicit invocation, complete interactive fallback, official validation, and exact cross-runtime sync pass."
+    },
+    {
+      "step": 4,
+      "status": "partial-pass",
+      "evidence": "Explicit selectors, Easify natural phrase, Easyfi compatibility phrase, PR surface loading, public-action boundary, and simple negative control passed in both runtimes.",
+      "remaining": "Run the complete repeated positive and negative suite during dogfood; natural model-selected activation is measured rather than deterministic."
+    },
+    {
+      "step": 5,
+      "status": "ready-for-human-evaluation",
+      "evidence": "Deterministic prompt generator, separate packaging/semantic/renderer lanes, frozen answers, hidden-label scorecard, and hard-failure criteria exist.",
+      "remaining": "Generate the arms in fresh sessions and collect Richard and cold-reader comprehension results."
+    },
+    {
+      "step": 6,
+      "status": "correctly-gated",
+      "evidence": "Native skill is available user-wide for test driving without changing production Coordinator method ownership.",
+      "remaining": "Only after the POC floor passes, replace the production local Easyfi method with a native-skill pointer."
+    },
+    {
+      "step": 7,
+      "status": "pending-user-dogfood",
+      "remaining": "Plan, report, Grill Me, PR, docs, idea, complex local interactive, and tiny cases."
+    },
+    {
+      "step": 8,
+      "status": "partial-existing-poc",
+      "evidence": "The previously inspected callback walkthrough still exists at /private/tmp/easyfi-walkthrough-test/walkthrough-agor-callback-queue.html with SHA-256 2e2f94791cfd7621b20abf89a4ded637a8e7dcf66eddc8bb974a736440f6e750.",
+      "remaining": "Its remote CDN dependencies and missing durable source-status metadata mean it is not yet hardened for sensitive source or final renderer scoring."
+    },
+    {
+      "step": 9,
+      "status": "pending-separate-decision",
+      "remaining": "Run the copied-Coordinator default trial after named-on-demand dogfood, restore named-on-demand in fresh sessions, and request explicit default promotion."
+    },
+    {
+      "step": 10,
+      "status": "installer-tested-publication-pending",
+      "evidence": "The direct-folder installer is idempotent, preserves one authority, and rejects real-directory conflicts in an isolated temporary root.",
+      "remaining": "Public repository preparation, public-safe fixture replacement, naming/license review, push, release, and publication require separate authority."
+    }
+  ],
+  "productionState": {
+    "nativeNamedOnDemandInstalled": true,
+    "coordinatorDefaultChanged": false,
+    "providerMutationPerformed": false,
+    "publicPublicationPerformed": false,
+    "agorProductCodeChanged": false
+  }
+}
