@@ -1,0 +1,48 @@
+{
+  "case": "standalone-getting-started-documentation",
+  "status": "awaiting-reader-feedback",
+  "artifact": "README.md",
+  "sha256": "a0d064ea7c05191d1194e470b5b00aa7da375a62b090361eaf180c2d4350adb3",
+  "surface": "documentation",
+  "level": "clear-to-teach",
+  "audience": "repository-aware reader new to Easify",
+  "requirements": [
+    "Explain the knowledge-transfer job without reducing it to summarization.",
+    "Show natural and native invocation.",
+    "Explain levels, interactive fallback, and authority boundaries.",
+    "Distinguish real dogfood from controlled evaluation.",
+    "Explain five development versus three held-out cases.",
+    "Explain packaging, semantic, and renderer comparisons.",
+    "Give one executable maintainer example.",
+    "State what happens next and what remains unpromoted."
+  ],
+  "readerQuestions": [
+    {
+      "q": "What job does Easify perform?",
+      "expected": "It transfers the smallest accurate, usable mental model for a reader while preserving facts, uncertainty, boundaries, and proof limits."
+    },
+    {
+      "q": "Why are real-work testing and frozen-case evaluation both needed?",
+      "expected": "Real work measures usefulness and experience; frozen cases isolate whether comprehension improves without factual, proportionality, or authority regressions."
+    },
+    {
+      "q": "What is the difference between development and held-out cases?",
+      "expected": "The five development cases may guide tuning; the three held-outs stay untouched until final evaluation so they test generalization."
+    },
+    {
+      "q": "What remains separately authorized?",
+      "expected": "Implementation, posting, publication, deployment, provider or shared-data mutation, default Coordinator promotion, and public release."
+    }
+  ],
+  "automatedChecks": {
+    "relativeLinksResolve": true,
+    "documentedPromptCommandRuns": true,
+    "skillPackageUnchanged": true
+  },
+  "humanChecksPending": [
+    "Comprehension answers",
+    "Time to usable understanding",
+    "Whether the single visual materially helped",
+    "Whether the document is too long, too short, or missing a decision-relevant boundary"
+  ]
+}
