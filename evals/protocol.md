@@ -1,7 +1,8 @@
 # Easify evaluation protocol
 
-The case manifests and their answer keys were frozen before the native skill was
-authored. Do not tune the skill from the three `holdout/` cases.
+The development and held-out case manifests and their answer keys were frozen
+before the native skill was authored. Post-dogfood regressions are recorded
+separately. Do not tune the skill from the three `holdout/` cases.
 
 ## Lanes
 
@@ -18,11 +19,23 @@ Use the case-specific questions and fill one copy of
 or recording preference. Any prohibited overclaim or hard failure fails the
 candidate regardless of preference.
 
-Generate a frozen prompt without answer keys, for example:
+## Representation-first regressions
+
+Dogfood failures may become focused cases under `cases/regression/` without
+changing the frozen development and held-out comparisons. Run them through the
+semantic lane in fresh sessions. Pass only when:
+
+- representations match the subject's topology and use the output surface well;
+- diagrams, tables, payloads, examples, and prose complement rather than repeat
+  one another;
+- a concrete example grounds the mental model; and
+- the existing tiny case remains a no-ceremonial-visual negative control.
+
+Generate an evaluation prompt without answer keys, for example:
 
 ```bash
 node scripts/prepare-run.mjs \
-  --case=01-callback-queue \
+  --case=09-implementation-visual-first \
   --lane=semantic \
   --arm=easify \
   --runtime=codex

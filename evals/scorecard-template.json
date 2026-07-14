@@ -16,6 +16,10 @@
   "wordCounts": {"A": 0, "B": 0},
   "hardFailures": [],
   "proportionality": "pass|fail",
+  "representationFit": "pass|fail|not-applicable",
+  "topologyAndSpaceUse": "pass|fail|not-applicable",
+  "complementaryMix": "pass|fail|not-applicable",
+  "concreteGrounding": "pass|fail|not-applicable",
   "audienceAppropriateness": "pass|fail|not-applicable",
   "notes": ""
 }

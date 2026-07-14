@@ -19,7 +19,10 @@ Find the complexity wall
        │
        ├── preserve what must survive
        ├── adapt to this reader
-       └── choose the smallest useful representation
+       └── match representation to relationship
+       │
+       ▼
+Topology-matched ASCII / table / payload / concise prose
        │
        ▼
 A mental model the reader can explain, use, or act on
@@ -78,9 +81,9 @@ not the decision-relevant boundary.
 
 | Level | Best for | What you get |
 |---|---|---|
-| `quick` | An immediate answer | The answer and only the distinction needed to use it |
-| `clear` | A usable mental model | One concrete example or representation when helpful |
-| `teach` | Understanding you can pass on | Cause, boundaries, and proof limits |
+| `quick` | An immediate answer | The answer, with a tiny table or flow when faster than prose |
+| `clear` | A usable mental model | A compact representation for structured material, plus only needed explanation |
+| `teach` | Understanding you can pass on | The representation plus cause, boundaries, and proof limits |
 | `explore` | A complex or nonlinear system | Complete Markdown and, when safe and useful, an interactive walkthrough |
 
 Add the level and audience in ordinary language:
@@ -123,8 +126,11 @@ An Easified explanation should be:
 
 - **Grounded:** verified facts, supported inference, and uncertainty stay
   distinguishable.
-- **Proportional:** a one-fact answer stays small; visuals appear only when they
-  materially reduce the work of understanding.
+- **Well-composed:** structured material uses width for parallelism, height for
+  sequence, and complementary diagrams, tables, payloads, examples, or prose
+  only when each carries a different relationship.
+- **Proportional:** a one-fact answer stays small; representation diversity is
+  not a quota.
 - **Concrete:** one useful example anchors the mental model.
 - **Honest about proof:** demonstrations and tests say what they establish—and
   what they do not.
@@ -143,15 +149,18 @@ The skill follows a compact method:
 1. Ground the explanation in the supplied material and required research.
 2. Identify the reader and the main complexity wall.
 3. Lead with the simplest correct answer.
-4. Choose the least expensive representation that explains the relationship.
-5. Anchor the model in a concrete example.
+4. Match representation and layout to the subject's topology.
+5. Ground the model in one concrete example.
 6. Preserve causality, alternatives, boundaries, uncertainty, and proof limits.
-7. End with the takeaway and, when useful, the next inspection or decision.
+7. Give every claim one home and delete repetition.
+8. End with the takeaway and, when useful, the next inspection or decision.
 
 The core method lives in [`easify/SKILL.md`](easify/SKILL.md). Conditional
 guidance for documentation, PRs, evidence, plans, audience adaptation, and
 interactive walkthroughs lives in
-[`easify/references/surfaces.md`](easify/references/surfaces.md).
+[`easify/references/surfaces.md`](easify/references/surfaces.md). Topology and
+representation guidance lives in
+[`easify/references/visual-composition.md`](easify/references/visual-composition.md).
 
 ## Repository map
 
@@ -160,9 +169,11 @@ easify/
 ├── easify/
 │   ├── SKILL.md                 # Core method and activation rules
 │   ├── agents/openai.yaml       # Codex-facing metadata
-│   └── references/surfaces.md  # Guidance loaded for specific surfaces
+│   └── references/
+│       ├── surfaces.md          # Guidance loaded for specific surfaces
+│       └── visual-composition.md # Topology and representation guidance
 ├── evals/
-│   ├── cases/                   # Frozen development and held-out cases
+│   ├── cases/                   # Frozen comparisons plus behavior regressions
 │   ├── results/                 # Baselines and evaluation snapshots
 │   └── protocol.md              # Comparison and scoring procedure
 └── scripts/
@@ -188,7 +199,8 @@ The evaluation design separates two questions that are easy to blur:
 
 Five development cases may guide improvements. Three held-out cases remain
 untouched until final evaluation so they can test whether those improvements
-generalize. The harness compares:
+generalize. Focused regression cases exercise behavior discovered during
+dogfood without changing those frozen comparisons. The harness compares:
 
 | Lane | Comparison | Question answered |
 |---|---|---|
@@ -196,7 +208,7 @@ generalize. The harness compares:
 | Semantic | Ordinary answer vs Easify Markdown | Did Easify improve understanding? |
 | Renderer | Easify Markdown vs Markdown plus walkthrough | Did interaction add value beyond the explanation? |
 
-Generate a frozen prompt for a fresh evaluation session:
+Generate a prompt for a fresh evaluation session:
 
 ```bash
 node scripts/prepare-run.mjs \

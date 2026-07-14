@@ -1,0 +1,22 @@
+{
+  "case": "implementation-visual-first",
+  "observedAt": "2026-07-14",
+  "status": "two-failed-forward-tests",
+  "prompt": "Easify this again (made changes to the skill, want to see how it looks now)",
+  "attempts": [
+    {
+      "skillSha256": "69bf4bd66e82fb717b33930d45e4a8f98ee3065d91ef57f648a3fe856fae14a4",
+      "result": "Visual but fragmented and repetitive: separate phase diagrams, wrapped table prose, missing concrete trace, and extra source/design sections."
+    },
+    {
+      "skillSha256": "036a3669748febd7e4f88c8dd9b4a93c43e3fac08b8be79b35f9c6d1bc3edbc5",
+      "result": "Integrated but over-vertical: parallel paths and alternatives were serialized into a tall outline, the table became a source index, and the concrete trace became prose."
+    }
+  ],
+  "preferredQualities": [
+    "Width carries parallelism and comparison while height carries sequence and causality.",
+    "The causal diagram, behavior table, state comparison, concrete trace, and prose carry complementary relationships.",
+    "The output uses screen real estate without becoming a tall outline or a wrapping horizontal diagram."
+  ],
+  "proofBoundary": "These user-observed outputs prove that prose-first, fragmented-visual, and vertical-first instructions do not reliably produce the preferred composition. They do not yet prove the revised topology-aware rules generalize across runtimes or subjects."
+}

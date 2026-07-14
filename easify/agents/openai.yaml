@@ -1,6 +1,6 @@
 interface:
   display_name: "Easify"
   short_description: "Make complex ideas easy without losing truth"
-  default_prompt: "Use $easify to explain this as a compact, accurate mental model."
+  default_prompt: "Use $easify to explain this as a compact, representation-first, accurate mental model."
 policy:
   allow_implicit_invocation: true

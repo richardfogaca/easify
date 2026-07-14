@@ -5,9 +5,12 @@ Load only the section matching the requested destination. The core method in
 
 ## Conversation or sharing
 
-Answer first. Use a concrete distinction or representation only when it reduces
-time to understanding. For a shareable Markdown export, remove local paths,
-private context, and unnecessary orchestration detail.
+Answer first. Lead with a compact representation when the subject has
+structure; use prose alone for a single fact or when a representation would
+increase reading effort. Match the representation to the subject's topology and
+omit source catalogs unless navigation was requested. For a shareable Markdown
+export, remove local paths, private context, and unnecessary orchestration
+detail.
 
 ## Plan or report
 

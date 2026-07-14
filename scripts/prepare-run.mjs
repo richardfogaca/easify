@@ -19,19 +19,20 @@ if (!['packaging', 'semantic', 'renderer', 'default-trial'].includes(args.lane))
 const casePaths = [
   path.join(root, `evals/cases/development/${args.case}.json`),
   path.join(root, `evals/cases/holdout/${args.case}.json`),
+  path.join(root, `evals/cases/regression/${args.case}.json`),
 ];
 const casePath = casePaths.find(fs.existsSync);
 if (!casePath) throw new Error(`Unknown case ${args.case}`);
 
 const testCase = JSON.parse(fs.readFileSync(casePath, 'utf8'));
-const source = fs.readFileSync(testCase.source.path, 'utf8');
+const source = testCase.source.content ?? fs.readFileSync(testCase.source.path, 'utf8');
 const skill = fs.readFileSync(path.join(root, 'easify/SKILL.md'), 'utf8');
 const surfaces = fs.readFileSync(path.join(root, 'easify/references/surfaces.md'), 'utf8');
 const selector = args.runtime === 'codex' ? '$easify' : '/easify';
 
 const task = [
   `Reader task: ${testCase.readerTask}`,
-  `Source identity: ${testCase.source.sha256} (${testCase.source.revision})`,
+  `Source identity: ${testCase.source.sha256 ?? 'inline-regression-fixture'} (${testCase.source.revision ?? 'dogfood-regression'})`,
   'Use only the source below for subject facts. Do not claim implementation, publication, or external mutation.',
   '<source>',
   source,

@@ -19,21 +19,30 @@ easier to receive, not less technically honest.
    - surface: conversation, plan, report, evidence, Grill Me, PR/comment,
      documentation, idea transfer, or interactive walkthrough.
 3. Identify the main complexity wall. Lead with the simplest correct answer.
-4. Choose the smallest useful representation. Use at most one primary visual by
-   default; zero is normal. Add another only for a materially different
-   relationship.
-5. Ground the mental model in one concrete example. Label synthetic or
+4. Choose the smallest set of representations that transfers the mental model.
+   For structured material, lead with a representation rather than a prose tour.
+   Use prose alone for a single fact or when a representation would increase
+   reading effort.
+5. Match shape to relationship: use width for parallelism and comparison;
+   height for sequence and causality; and a hybrid layout when both matter. Use
+   one primary representation, then add a table, payload, or example only when
+   it carries a materially different relationship.
+6. Ground the mental model in one concrete example. For stateful or gated
+   behavior, prefer a compact action-to-outcome trace. Label synthetic or
    simplified data.
-6. Preserve decision-relevant causality, alternatives, boundaries, and proof
+7. Preserve decision-relevant causality, alternatives, boundaries, and proof
    limits. State what evidence or a demonstration proves and does not prove.
-7. End with the durable takeaway and, when useful, the next inspection, action,
+8. End with the durable takeaway and, when useful, the next inspection, action,
    or decision.
 
 ## Adjust depth
 
-- `quick`: give the answer and only the distinction needed to use it.
-- `clear`: bridge the complexity wall with one example or representation.
-- `teach`: explain cause, boundary, and proof so the reader can retell it.
+- `quick`: give the answer and only the distinction needed to use it; use a
+  tiny table or flow when it is faster to read than prose.
+- `clear`: lead with a topology-matched representation when the subject has
+  structure; add only the mapping, example, or explanation needed to use it.
+- `teach`: keep the representation and add cause, boundary, and proof so the
+  reader can retell it.
 - `explore`: provide a complete Markdown explanation and offer or create a
   source-backed interactive walkthrough when safe and useful.
 
@@ -42,16 +51,31 @@ remain simple.
 
 ## Select representations
 
-Prefer the least expensive form that explains the relationship:
+Prefer the form that minimizes reader effort, not generation effort:
 
-- short prose for one fact or distinction;
-- a table for exact mappings or comparisons;
-- an ASCII flow, tree, state comparison, or timeline for relationships;
+- an ASCII flow, tree, state comparison, or timeline for sequences,
+  parallel paths, hierarchy, or causality;
+- a table for exact mappings, ownership, options, or comparisons;
 - representative JSON, rows, requests, responses, CLI output, or a short source
   excerpt when data or logic is the issue;
+- short prose for a single fact or distinction, or to connect gaps a compact
+  representation cannot express;
 - a screenshot for real visible product state;
 - an installed interactive walkthrough or visualization capability when the
   reader benefits from nonlinear exploration.
+
+Use a diagram for causal shape, a table for exact mappings or comparisons, a
+payload for data shape, and an example for use. They may coexist only when they
+complement rather than repeat one another. Give each claim one primary home and
+remove duplicated prose or representations.
+
+For implementation explanations, organize around responsibilities and runtime
+flow rather than source-file order. Omit source catalogs and secondary design
+commentary unless the reader requested navigation or they change the conclusion.
+
+Read [references/visual-composition.md](references/visual-composition.md) when
+the subject has multiple interacting paths, states, or representation types, or
+when visual layout quality materially affects understanding.
 
 For an interactive request, keep the Markdown explanation independently
 complete. Use an existing safe capability; do not invent an Easify-specific

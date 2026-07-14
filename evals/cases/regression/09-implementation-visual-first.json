@@ -1,0 +1,39 @@
+{
+  "id": "implementation-visual-first",
+  "surface": "conversation",
+  "source": {
+    "content": "A launch list derives unfinished state from draft_unsynced and opens the existing map with farm and plot identifiers. The map reuses the matching local draft. A mutation guard allows edits only while the launch and descendants are local and correctly related. Finalization validates required points and changes the status to finalized. A tree validator blocks an entire draft or structurally incomplete launch from synchronization. The media repository returns uploads only for finalized launches. The push coordinator marks only server-accepted records as synchronized and cleanup removes only fully synchronized finalized trees. One operation lock serializes mutation, finalization, migration, and synchronization."
+  },
+  "readerTask": "Explain how these cooperating parts implement resumable local drafts and safe synchronization for a repository-aware reader. Easify the result.",
+  "requiredFacts": [
+    "The launch list and existing map resume the same local draft.",
+    "Mutation guards keep edits local and structurally valid.",
+    "Finalization changes sync eligibility.",
+    "The validator blocks an ineligible launch as a whole tree.",
+    "Media and selective acknowledgement provide independent sync safeguards.",
+    "The shared operation lock prevents mutation and sync races."
+  ],
+  "representationRequirements": [
+    "Match layout to topology: use width for parallel user/sync paths and state alternatives, height for lifecycle sequence, and a hybrid when both matter.",
+    "Use the available surface without turning the explanation into a tall outline or a wrapping horizontal diagram.",
+    "Let the primary diagram carry causality, tables carry exact behavior mappings or comparisons, and the concrete example carry action-to-outcome branches.",
+    "Use representations only when they add a distinct relationship; give each claim one primary home.",
+    "Organize implementation by responsibility and runtime flow without an unrequested source catalog."
+  ],
+  "failureSignals": [
+    "A mostly vertical outline underuses horizontal space for parallel paths and alternatives.",
+    "A diagram, table, example, and prose repeat the same relationship.",
+    "A table contains only source locations or the concrete example does not compare actions and outcomes."
+  ],
+  "prohibitedOverclaims": [
+    "A draft or its media can synchronize before finalization.",
+    "Every captured local record is marked synchronized regardless of server acceptance.",
+    "The representation proves runtime behavior without validation evidence."
+  ],
+  "questions": [
+    {"q": "How does a user resume unfinished work?", "a": "The list identifies the local draft and opens the existing map, which reuses that draft."},
+    {"q": "What changes the launch from blocked to eligible?", "a": "Successful finalization changes its status to finalized."},
+    {"q": "Why can an incomplete child not leak independently?", "a": "The validator treats the launch and descendants as one eligibility unit, with media guarded separately."},
+    {"q": "What prevents synchronization from racing a local edit?", "a": "The shared operation lock serializes those operations."}
+  ]
+}
