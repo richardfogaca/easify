@@ -1,133 +1,202 @@
 # Easify
 
-Easify turns complex information into the smallest accurate mental model a
-specific reader can use.
+**Make complex ideas easy to receive—without making them less true.**
 
-It is not a summarizer that throws details away. It tries to reduce the time
-between:
+Easify is a reusable skill for Codex and Claude Code. It turns grounded
+technical, product, business, or operational material into the smallest
+accurate mental model a particular reader can use.
 
-> “I know the words, but I still don’t get it.”
-
-and:
-
-> “Okay—I understand what is happening, why it matters, and what to do next.”
-
-```text
-Grounded source
-      │
-      ▼
-   Easify
-   ├── find the complexity wall
-   ├── preserve facts and uncertainty
-   ├── choose the smallest useful representation
-   └── adapt depth and vocabulary to the reader
-      │
-      ├── portable Markdown / ASCII
-      └── optional interactive walkthrough
-      │
-      ▼
-Correct mental model
-      │
-      ├── real-work feedback ───────► tune development cases
-      └── controlled comparison ────► untouched held-out cases
-                                      │
-                                      ▼
-                             decide whether to promote
-```
-
-The interactive artifact may help exploration, but the Markdown explanation
-must remain complete by itself.
-
-## Try it
-
-Start a fresh Codex or Claude session and ask naturally:
+It is not a summarizer that wins brevity by dropping the hard parts. Easify
+finds the point where understanding gets stuck—the **complexity wall**—and
+crosses it while preserving the facts, uncertainty, causality, and proof limits
+that still matter.
 
 ```text
-Easify this: <subject>
-Easify this evidence—what does it actually prove?
-Easify this plan before I approve it.
-Easify this for a non-engineering reader.
-Easify interactive: help me explore this system.
+Grounded material
+       │
+       ▼
+Find the complexity wall
+       │
+       ├── preserve what must survive
+       ├── adapt to this reader
+       └── choose the smallest useful representation
+       │
+       ▼
+A mental model the reader can explain, use, or act on
 ```
 
-Native selectors are the deterministic fallback:
+## Quick start
 
-| Runtime | Selector |
-|---|---|
-| Codex | `$easify` |
-| Claude | `/easify` |
+Clone the repository and run the local installer:
 
-`Easyfi this` remains a temporary compatibility phrase. There is no second
-alias skill.
+```bash
+git clone https://github.com/richardfogaca/easify.git
+cd easify
+./scripts/install-local.sh
+```
 
-## Choose the depth
+The installer makes the same skill available to both runtimes:
 
-| Level | Use it when… | Expected shape |
+- Codex: `~/.codex/skills/easify`
+- Claude Code: `~/.claude/skills/easify`
+
+It uses symlinks, so edits in the clone are reflected in both places. It is
+idempotent and refuses to overwrite an existing real file or directory.
+
+Start a fresh session, then ask naturally:
+
+```text
+Easify this: <paste or point to the material>
+```
+
+Or invoke it explicitly when deterministic selection matters:
+
+```text
+# Codex
+$easify Explain this incident for the engineer taking over the fix.
+
+# Claude Code
+/easify Explain this incident for the engineer taking over the fix.
+```
+
+## What good Easifying looks like
+
+Imagine a test reports that an API returned `200 OK` after accepting a job.
+A conventional summary might say, “The job completed successfully.” Easify
+keeps the critical distinction:
+
+> The `200` proves the API accepted the request. It does not prove the
+> background job finished. Check the job state or worker result before claiming
+> end-to-end success.
+
+That example is simplified, but it shows the job: remove the cognitive detour,
+not the decision-relevant boundary.
+
+## Ask for the depth you need
+
+`clear` is the default. The levels control depth, not a rigid format.
+
+| Level | Best for | What you get |
 |---|---|---|
-| `quick` | You need the answer immediately | Answer plus the essential distinction |
-| `clear` | You want a usable mental model | One concrete example or representation |
-| `teach` | You need to explain it to someone else | Cause, boundary, and proof limits |
-| `explore` | The system is complex or nonlinear | Complete Markdown plus an optional walkthrough |
+| `quick` | An immediate answer | The answer and only the distinction needed to use it |
+| `clear` | A usable mental model | One concrete example or representation when helpful |
+| `teach` | Understanding you can pass on | Cause, boundaries, and proof limits |
+| `explore` | A complex or nonlinear system | Complete Markdown and, when safe and useful, an interactive walkthrough |
 
-These are depth controls, not output templates. A one-fact answer should remain
-small even at the normal `clear` default.
+Add the level and audience in ordinary language:
 
-## What Easify can help with
+```text
+Easify this at teach level for a frontend engineer new to the data model.
+Easify this quickly for the person approving the rollout.
+Easify this for a customer success lead; preserve the operational risks.
+Easify interactive: help me explore how these services exchange events.
+```
 
-- A technical incident or unfamiliar subsystem
-- A plan before approval
-- QA evidence and what it does—or does not—prove
-- A PR description, review, or shareable explanation
+If an interactive walkthrough is created, the Markdown explanation must still
+stand on its own. The walkthrough helps exploration; it is not independent
+evidence.
+
+## Where it helps
+
+- Unfamiliar code, architecture, or technical incidents
+- Plans that need to be understood before approval
+- QA evidence and the boundary of what it actually proves
+- PR descriptions, reviews, and shareable engineering explanations
 - Documentation and knowledge transfer
-- A Grill Me decision with researched tradeoffs
-- The same idea for an engineer, marketer, operator, or another reader
-- A local interactive walkthrough when exploration materially helps
+- Product ideas, tradeoffs, and unresolved assumptions
+- The same subject for readers with different contexts
+- Complex systems that genuinely benefit from interactive exploration
 
-Easify changes communication, not authority. An explanation does not authorize
-implementation, publication, deployment, provider mutation, or shared-data
-changes.
+Some useful prompts:
 
-## The two ways we test it
+```text
+Easify this evidence—what does it prove, and what remains unverified?
+Easify this plan before I approve it.
+Easify this PR for a reviewer who does not know this subsystem.
+Easify this idea, but keep speculation separate from verified facts.
+Easify these two options as a decision I can make.
+```
 
-### Real-work test drive
+## What Easify protects
 
-Use Easify when you genuinely want help understanding something. Then record
-what you noticed:
+An Easified explanation should be:
 
-- Did you understand it faster?
-- Was an important limitation lost?
-- Was the representation useful or decorative?
-- Was it proportional to the problem?
-- Did you need another question before you could act or decide?
+- **Grounded:** verified facts, supported inference, and uncertainty stay
+  distinguishable.
+- **Proportional:** a one-fact answer stays small; visuals appear only when they
+  materially reduce the work of understanding.
+- **Concrete:** one useful example anchors the mental model.
+- **Honest about proof:** demonstrations and tests say what they establish—and
+  what they do not.
+- **Audience-aware:** vocabulary and assumed context change, but truth, risk,
+  and respect do not.
+- **Authority-preserving:** explaining a change does not authorize implementing,
+  posting, publishing, deploying, or mutating external state.
 
-This measures the actual experience.
+The durable rule is simple: **make the subject easier to receive, not less
+technically honest.**
 
-### Controlled evaluation
+## How it works
 
-Eight cases were frozen before the native skill was authored:
+The skill follows a compact method:
 
-| Cases | Purpose | May tune from them? |
+1. Ground the explanation in the supplied material and required research.
+2. Identify the reader and the main complexity wall.
+3. Lead with the simplest correct answer.
+4. Choose the least expensive representation that explains the relationship.
+5. Anchor the model in a concrete example.
+6. Preserve causality, alternatives, boundaries, uncertainty, and proof limits.
+7. End with the takeaway and, when useful, the next inspection or decision.
+
+The core method lives in [`easify/SKILL.md`](easify/SKILL.md). Conditional
+guidance for documentation, PRs, evidence, plans, audience adaptation, and
+interactive walkthroughs lives in
+[`easify/references/surfaces.md`](easify/references/surfaces.md).
+
+## Repository map
+
+```text
+easify/
+├── easify/
+│   ├── SKILL.md                 # Core method and activation rules
+│   ├── agents/openai.yaml       # Codex-facing metadata
+│   └── references/surfaces.md  # Guidance loaded for specific surfaces
+├── evals/
+│   ├── cases/                   # Frozen development and held-out cases
+│   ├── results/                 # Baselines and evaluation snapshots
+│   └── protocol.md              # Comparison and scoring procedure
+└── scripts/
+    ├── install-local.sh         # Shared Codex/Claude installation
+    ├── prepare-run.mjs          # Deterministic evaluation prompt generator
+    └── validate.mjs             # Structure, boundary, fixture, and installer checks
+```
+
+## Validation and evaluation
+
+Run the repository checks with Node.js:
+
+```bash
+node scripts/validate.mjs
+```
+
+The evaluation design separates two questions that are easy to blur:
+
+- **Real-work dogfood:** does Easify help a person understand genuine work
+  faster and with fewer follow-up questions?
+- **Controlled comparison:** does it improve comprehension without introducing
+  factual, proportionality, or authority regressions?
+
+Five development cases may guide improvements. Three held-out cases remain
+untouched until final evaluation so they can test whether those improvements
+generalize. The harness compares:
+
+| Lane | Comparison | Question answered |
 |---|---|---|
-| 5 development cases | Find weaknesses and improve the method | Yes |
-| 3 held-out cases | Check whether improvements generalize | No |
+| Packaging | Locally supplied method vs native skill | Did packaging change the method's behavior? |
+| Semantic | Ordinary answer vs Easify Markdown | Did Easify improve understanding? |
+| Renderer | Easify Markdown vs Markdown plus walkthrough | Did interaction add value beyond the explanation? |
 
-Each case contains a source hash, facts that must survive, uncertainty and proof
-limits, prohibited overclaims, and case-specific comprehension questions.
-
-The harness runs three different comparisons because they answer different
-questions:
-
-| Comparison | A versus B | What it isolates |
-|---|---|---|
-| Packaging | Same method loaded locally vs native skill | Did packaging change behavior? |
-| Semantic | Ordinary answer vs Easify Markdown | Does Easify improve understanding? |
-| Renderer | Easify Markdown vs Markdown plus walkthrough | Does interaction add value? |
-
-Labels are hidden while comprehension is scored. Preference is recorded only
-after the reader answers the case questions, so “I know which one is Easify”
-does not become the result.
-
-For maintainers, a frozen prompt can be generated with:
+Generate a frozen prompt for a fresh evaluation session:
 
 ```bash
 node scripts/prepare-run.mjs \
@@ -137,32 +206,18 @@ node scripts/prepare-run.mjs \
   --runtime=codex
 ```
 
-The full procedure is in [evals/protocol.md](evals/protocol.md). The distributed
-skill remains only [SKILL.md](easify/SKILL.md), its metadata, and the conditional
-[surface guidance](easify/references/surfaces.md).
+The full procedure and hard-failure criteria are in
+[`evals/protocol.md`](evals/protocol.md). Current evidence snapshots live in
+[`evals/results/`](evals/results/); they should not be mistaken for a blanket
+claim that every audience, domain, or interactive renderer has been validated.
 
-## What happens next
+## Current posture
 
-1. Test Easify on several real situations.
-2. Tune it using the five development cases.
-3. Freeze the candidate and run label-hidden comparisons.
-4. Open the three held-out cases only for final evaluation.
-5. If comprehension improves without truth, proportionality, or authority
-   regressions, test it as a default in a copied Coordinator.
-6. Promote default behavior or publish it only through separate decisions.
+Easify is designed for **named-on-demand** use: invoke it when you want this
+communication method. Making it an agent's default voice, changing production
+workflows, or publishing a broader release are separate decisions with their
+own evidence and authorization.
 
-Today Easify is installed locally in named-on-demand mode. It is not the default
-Coordinator voice and has not been publicly published.
-
-## Does this page work?
-
-This page is itself the first documentation dogfood case. After reading only
-this page, you should be able to answer:
-
-1. What job does Easify perform?
-2. Why are real-work testing and frozen-case evaluation both needed?
-3. What is the difference between the five development and three held-out cases?
-4. What remains separately authorized even after Easify produces an explanation?
-
-If any answer required opening the implementation plan, this documentation has
-not crossed the complexity wall yet.
+For now, the best test is a real one: give Easify material you genuinely need
+to understand, then ask whether you reached a correct, usable mental model
+faster—and whether anything important was lost along the way.
